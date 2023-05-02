@@ -1,4 +1,5 @@
 <section>
+  {{ 'custom-reset.css' | asset_url | stylesheet_tag }}
   {{ 'custom-page.css' | asset_url | stylesheet_tag }}
 
   <section class="product-section">
@@ -7,7 +8,7 @@
         <div class="swiper-wrapper">
           {% for image in product.images %}
             <div class="swiper-slide">
-              <img src={{image}} alt={{product.title}}>
+              {% render 'image' %}
             </div>
           {% endfor %}
         </div>
