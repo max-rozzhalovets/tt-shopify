@@ -39,7 +39,7 @@
           {% for tag in product.tags %}
             <li class="product__property">
               {% render 'custom-hexagon' %}
-              {{tag}}
+              <span>{{tag}}</span>
             </li>
           {% endfor %}
         </ul>
@@ -47,8 +47,12 @@
           <h2 class="product__size-text">Kies formaat:</h2>
           <div class="product__size-container">
             <ul class="product__size-list">
-              {% for productSize in product.variants.size %}
-              <li class="product__size-option">{{productSize}} gr</li>
+              {% for variant in product.variants %}
+                {% if variant.name == 'Size' %}
+                  {% for value in variant.values %}
+                    <li class="product__size-option">{{value}} gr</li>
+                  {% endfor %}
+                {% endif %}
               {% endfor %}
             </ul>
             <p class="product__availability">

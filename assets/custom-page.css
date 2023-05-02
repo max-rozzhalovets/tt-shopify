@@ -134,18 +134,13 @@
 }
 
 .product__property {
-	font-size: 14px;
+    font-size: 14px;
 	line-height: 130%;
-}
 
-/* .product__property::before {
-	content: url(./images/Hexagon.svg);
-	display: inline-block;
-	width: 16px;
-	height: 24px;
-	margin-right: 3px;
-	transform: translateY(20%);
-} */
+	display: flex;
+	align-items: flex-end;
+	gap: 3px;
+}
 
 .product__size {
 	padding-top: 24px;
