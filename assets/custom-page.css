@@ -312,7 +312,7 @@
 .video-section {
 	background-color: #E1D8C7;
 
-    background-image: url({{'custom-background'}});
+    background-image: url({{'custom-background' | asset_url}});
 	background-repeat: no-repeat;
 }
 
