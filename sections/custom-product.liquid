@@ -1,199 +1,203 @@
-<section class="product-section">
-  <div class="hero-container">
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        {% for image in product.images %}
-          <div class="swiper-slide">
-            <img src={{image}} alt={{product.title}}>
-          </div>
-        {% endfor %}
-      </div>
-      <div class="swiper-button swiper-button-prev"></div>
-      <div class="swiper-button swiper-button-next"></div>
-    </div>
-    <div class="product__info">
-      <div class="quote">
-        <p class="quote__text">“Heerlijke zaadjes voor in de havermout of over een smoothie.”</p>
-        <span class="quote__author">— Lotte A., Gepelde hennep zaden klant</span>
-      </div>
-      <h1 class="product__title">
-        {{product.title}}
-      </h1>
-      <div class="rate">
-        <span class="rate__number">4.7</span>
-        <ul class="stars">
-          {% for i in (1..5) %}
-            <li class="stars__item">{% render 'custom-star' %}</li>
+<section>
+  {{ 'custom-page.css' | asset_url | stylesheet_tag }}
+
+  <section class="product-section">
+    <div class="hero-container">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {% for image in product.images %}
+            <div class="swiper-slide">
+              <img src={{image}} alt={{product.title}}>
+            </div>
           {% endfor %}
-        </ul>
-        <p class="rate__text">MEER DAN 1.000 REVIEWS</p>
+        </div>
+        <div class="swiper-button swiper-button-prev"></div>
+        <div class="swiper-button swiper-button-next"></div>
       </div>
-      <p class="product__description">
-        {{product.description}}
-      </p>
-      <ul class="product__properties">
-        {% for tag in product.tags %}
-          <li class="product__property">
-            {% render 'custom-hexagon' %}
-            {{tag}}
-          </li>
-        {% endfor %}
-      </ul>
-      <div class="product__size">
-        <h2 class="product__size-text">Kies formaat:</h2>
-        <div class="product__size-container">
-          <ul class="product__size-list">
-            {% for productSize in product.variants.size %}
-            <li class="product__size-option">{{productSize}} gr</li>
+      <div class="product__info">
+        <div class="quote">
+          <p class="quote__text">“Heerlijke zaadjes voor in de havermout of over een smoothie.”</p>
+          <span class="quote__author">— Lotte A., Gepelde hennep zaden klant</span>
+        </div>
+        <h1 class="product__title">
+          {{product.title}}
+        </h1>
+        <div class="rate">
+          <span class="rate__number">4.7</span>
+          <ul class="stars">
+            {% for i in (1..5) %}
+              <li class="stars__item">{% render 'custom-star' %}</li>
             {% endfor %}
           </ul>
-          <p class="product__availability">
-            Op voorraad
+          <p class="rate__text">MEER DAN 1.000 REVIEWS</p>
+        </div>
+        <p class="product__description">
+          {{product.description}}
+        </p>
+        <ul class="product__properties">
+          {% for tag in product.tags %}
+            <li class="product__property">
+              {% render 'custom-hexagon' %}
+              {{tag}}
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="product__size">
+          <h2 class="product__size-text">Kies formaat:</h2>
+          <div class="product__size-container">
+            <ul class="product__size-list">
+              {% for productSize in product.variants.size %}
+              <li class="product__size-option">{{productSize}} gr</li>
+              {% endfor %}
+            </ul>
+            <p class="product__availability">
+              Op voorraad
+            </p>
+          </div>
+        </div>
+        <div class="price">
+          <span class="price__previous">&euro;79,00</span>
+          <span class="price__current">&euro;{{product.price}}</span>
+        </div>
+        <div class="order">
+          <select class="quantity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <button type="button" class="order__button">Voeg toe aan winkelwagen</button>
+          <button type="button" class="favourites-button">
+            {% render 'custom-heart' %}
+          </button>
+        </div>
+        <ul class="payment">
+          {% assign payments = 'custom-mono,custom-paypal,custom-visa,custom-mastercard,custom-amex' | split: ',' %}
+          {% for payment in payments %}
+            <li class="payment__option">
+              {% render payment %}
+            </li>
+          {% endfor %}
+        </ul>
+        <ul class="product__assets">
+          <li class="product__asset">
+            {% render 'custom-truck' %}
+            <p class="product__asset-text">Vóór 21:00 besteld (ZO-VR), morgen in huis* *BELGIË 14:30</p>
+          </li>
+          <li class="product__asset">
+            {% render 'custom-wallet' %}
+            <p class="product__asset-text">Gratis verzending vanaf €59, anders €4,90</p>
+          </li>
+          <li class="product__asset">
+            {% render 'custom-flower' %}
+            <p class="product__asset-text">Hoogste kwaliteit producten, bezorgd in heel Europa</p>
+          </li>
+          <li class="product__asset">
+            {% render 'custom-headset' %}
+            <p class="product__asset-text">Beste klantenservice & retourneren mogelijk</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="video-section">
+    <div class="container">
+      <div class="video-block">
+        <div>
+          <h2 class="video-block__title">Lorem Ipsum Dolorem</h2>
+          <p class="video-block__text">
+            Rijk aan mineralen en antioxidanten Bevat 15 van de 18 voor de mens essentiële mineralen, waaronder calcium, jodium, kalium, magnesium en ijzer. Bevat daarnaast vitamine A, B, C, D, E, F en K, eiwitten en antioxidanten (bètacaroteen)
           </p>
         </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/e1xt8css5lk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <!-- <video width="320" height="240" controls>
+          <source src="movie.mp4" type="video/mp4">
+          <source src="movie.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+        </video> -->
       </div>
-      <div class="price">
-        <span class="price__previous">&euro;79,00</span>
-        <span class="price__current">&euro;{{product.price}}</span>
-      </div>
-      <div class="order">
-        <select class="quantity">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
-        <button type="button" class="order__button">Voeg toe aan winkelwagen</button>
-        <button type="button" class="favourites-button">
-          {% render 'custom-heart' %}
+    </div>
+  </section>
+  <section class="description-section">
+    <div class="container">
+      <div class="description">
+        <h2 class="description__title">Productbeschrijving</h2>
+        <ul class="description__options description__options--cropped">
+          <li class="description__option">
+            <h3 class="description__subtitle">
+              Wat betekent sea moss nu eigenlijk?
+            </h3>
+            <p class="description__text">
+              Sea moss is de Engelse naam voor zeemos, ook wel Iris sea moss genoemd. Irish moss, ook wel bekend als carrageenmos, is afgeleid van het Ierse woord “carraigin” wat “kleine rots” betekent. Eigenlijk is Irish sea moss helemaal geen mos maar een zeewier dat voornamelijk langs de Europese en Amerikaanse kust van de Atlantische Oceaan groeit.
+            </p>
+          </li>
+          <li class="description__option">
+            <h3 class="description__subtitle">
+              De gezondheidsvoordelen van Iris Sea Moss
+            </h3>
+            <p class="description__text">
+              Zeemos is een heilzaam zeewier dat zeer rijk is aan vitamines, mineralen en antioxidanten. Zo bevat sea moss maar liefst 15 van de 18 voor de mens essentiële mineralen, waaronder calcium, jodium, kalium, magnesium en ijzer. Daarnaast levert dit mos ook vitamines als A, B, C, D, E, F en K, eiwitten en antioxidanten (bètacaroteen). Daarmee is sea moss een van de meest voedzame superfoods die bestaat!
+            </p>
+          </li>
+          <li class="description__option">
+            <h3 class="description__subtitle">
+              Maar dit heilige zeewier doet meer…
+            </h3>
+            <p class="description__text">
+              Sea moss gaat daarnaast ook nog eens de veroudering van de huid tegen en werkt bovendien verzachtend, voedend en beschermend. Irish sea moss wordt om die reden vaak gebruikt in huidcrèmes, body lotions, shampoos en gels. Zo kan het huidproblemen helpen verlichten, zoals psoriasis, allergieën, uitslag, snijwonden, roos, eczeem en zelfs een verbrande huid.
+            </p>
+          </li>
+          <li class="description__option">
+            <h3 class="description__subtitle">
+              Hoe herken en gebruik ik sea moss dan?
+            </h3>
+            <p class="description__text">
+              Verse Irish Sea Moss is een zeewier die groeit langs de rotsachtige delen van de oceaan. Het is groengeel tot rood met donkerpaarse of paarsbruine tinten en voelt zacht en wat kraakbeenachtig aan. Je kunt het zo eten of als bindmiddel gebruiken. Al met al is sea moss een gezonde toevoeging op je dagelijks dieet.
+            </p>
+          </li>
+          <li class="description__option">
+            <h3 class="description__subtitle">
+              Ook sea moss kopen? Ga voor puur en onbewerkt
+            </h3>
+            <p class="description__text">
+              Wil jij ook de bijzondere werking van dit heilige zeewier ervaren? Kies dan voor de meest pure en onbewerkte biologische kwaliteit omdat daar nog de meeste voedingsstoffen in zitten. Zeemos van Superfoodies is onbewerkt, niet verhit boven 42 graden (rawfood) en biologisch gecertificeerd. Zodat jij profiteert van de hoogste kwaliteit tegen de scherpste prijs.</p>
+            </p>
+          </li>
+        </ul>
+        <button type="button" class="show-more-button">
+          <span class="show-more-button__text">Meer lezen</span>
         </button>
       </div>
-      <ul class="payment">
-        {% assign payments = 'custom-mono,custom-paypal,custom-visa,custom-mastercard,custom-amex' | split: ',' %}
-        {% for payment in payments %}
-          <li class="payment__option">
-            {% render payment %}
-          </li>
-        {% endfor %}
-      </ul>
-      <ul class="product__assets">
-        <li class="product__asset">
-          {% render 'custom-truck' %}
-          <p class="product__asset-text">Vóór 21:00 besteld (ZO-VR), morgen in huis* *BELGIË 14:30</p>
-        </li>
-        <li class="product__asset">
-          {% render 'custom-wallet' %}
-          <p class="product__asset-text">Gratis verzending vanaf €59, anders €4,90</p>
-        </li>
-        <li class="product__asset">
-          {% render 'custom-flower' %}
-          <p class="product__asset-text">Hoogste kwaliteit producten, bezorgd in heel Europa</p>
-        </li>
-        <li class="product__asset">
-          {% render 'custom-headset' %}
-          <p class="product__asset-text">Beste klantenservice & retourneren mogelijk</p>
-        </li>
-      </ul>
     </div>
-  </div>
-</section>
-<section class="video-section">
-  <div class="container">
-    <div class="video-block">
-      <div>
-        <h2 class="video-block__title">Lorem Ipsum Dolorem</h2>
-        <p class="video-block__text">
-          Rijk aan mineralen en antioxidanten Bevat 15 van de 18 voor de mens essentiële mineralen, waaronder calcium, jodium, kalium, magnesium en ijzer. Bevat daarnaast vitamine A, B, C, D, E, F en K, eiwitten en antioxidanten (bètacaroteen)
-        </p>
-      </div>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/e1xt8css5lk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <!-- <video width="320" height="240" controls>
-        <source src="movie.mp4" type="video/mp4">
-        <source src="movie.ogg" type="video/ogg">
-      Your browser does not support the video tag.
-      </video> -->
-    </div>
-  </div>
-</section>
-<section class="description-section">
-  <div class="container">
-    <div class="description">
-      <h2 class="description__title">Productbeschrijving</h2>
-      <ul class="description__options description__options--cropped">
-        <li class="description__option">
-          <h3 class="description__subtitle">
-            Wat betekent sea moss nu eigenlijk?
-          </h3>
-          <p class="description__text">
-            Sea moss is de Engelse naam voor zeemos, ook wel Iris sea moss genoemd. Irish moss, ook wel bekend als carrageenmos, is afgeleid van het Ierse woord “carraigin” wat “kleine rots” betekent. Eigenlijk is Irish sea moss helemaal geen mos maar een zeewier dat voornamelijk langs de Europese en Amerikaanse kust van de Atlantische Oceaan groeit.
-          </p>
-        </li>
-        <li class="description__option">
-          <h3 class="description__subtitle">
-            De gezondheidsvoordelen van Iris Sea Moss
-          </h3>
-          <p class="description__text">
-            Zeemos is een heilzaam zeewier dat zeer rijk is aan vitamines, mineralen en antioxidanten. Zo bevat sea moss maar liefst 15 van de 18 voor de mens essentiële mineralen, waaronder calcium, jodium, kalium, magnesium en ijzer. Daarnaast levert dit mos ook vitamines als A, B, C, D, E, F en K, eiwitten en antioxidanten (bètacaroteen). Daarmee is sea moss een van de meest voedzame superfoods die bestaat!
-          </p>
-        </li>
-        <li class="description__option">
-          <h3 class="description__subtitle">
-            Maar dit heilige zeewier doet meer…
-          </h3>
-          <p class="description__text">
-            Sea moss gaat daarnaast ook nog eens de veroudering van de huid tegen en werkt bovendien verzachtend, voedend en beschermend. Irish sea moss wordt om die reden vaak gebruikt in huidcrèmes, body lotions, shampoos en gels. Zo kan het huidproblemen helpen verlichten, zoals psoriasis, allergieën, uitslag, snijwonden, roos, eczeem en zelfs een verbrande huid.
-          </p>
-        </li>
-        <li class="description__option">
-          <h3 class="description__subtitle">
-            Hoe herken en gebruik ik sea moss dan?
-          </h3>
-          <p class="description__text">
-            Verse Irish Sea Moss is een zeewier die groeit langs de rotsachtige delen van de oceaan. Het is groengeel tot rood met donkerpaarse of paarsbruine tinten en voelt zacht en wat kraakbeenachtig aan. Je kunt het zo eten of als bindmiddel gebruiken. Al met al is sea moss een gezonde toevoeging op je dagelijks dieet.
-          </p>
-        </li>
-        <li class="description__option">
-          <h3 class="description__subtitle">
-            Ook sea moss kopen? Ga voor puur en onbewerkt
-          </h3>
-          <p class="description__text">
-            Wil jij ook de bijzondere werking van dit heilige zeewier ervaren? Kies dan voor de meest pure en onbewerkte biologische kwaliteit omdat daar nog de meeste voedingsstoffen in zitten. Zeemos van Superfoodies is onbewerkt, niet verhit boven 42 graden (rawfood) en biologisch gecertificeerd. Zodat jij profiteert van de hoogste kwaliteit tegen de scherpste prijs.</p>
-          </p>
-        </li>
-      </ul>
-      <button type="button" class="show-more-button">
-        <span class="show-more-button__text">Meer lezen</span>
-      </button>
-    </div>
-  </div>
-</section>
+  </section>
 
-<script type="module">
-  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
+  <script type="module">
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
 
-  const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
+    const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
 
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
 
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
-})
-</script>
-
-<script>
-  const description = document.querySelector(".description__options")
-  console.dir(description)
-  const showMoreButton = document.querySelector(".show-more-button")
-
-  showMoreButton.addEventListener('click', () => {
-    description.classList.toggle("description__options--cropped")
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
   })
-</script>
+  </script>
+
+  <script>
+    const description = document.querySelector(".description__options")
+    console.dir(description)
+    const showMoreButton = document.querySelector(".show-more-button")
+
+    showMoreButton.addEventListener('click', () => {
+      description.classList.toggle("description__options--cropped")
+    })
+  </script>
+</section>
