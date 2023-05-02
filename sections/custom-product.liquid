@@ -4,6 +4,13 @@
   {{ 'custom-reset.css' | asset_url | stylesheet_tag }}
   {{ 'custom-page.css' | asset_url | stylesheet_tag }}
 
+  <style>
+    .video-section {
+    	background-image: url('custom-background' | asset_url);
+    	background-repeat: no-repeat;
+    }
+  </style>
+
   <section class="product-section">
     <div class="hero-container">
       <div class="swiper">
