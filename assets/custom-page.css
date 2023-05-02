@@ -312,7 +312,7 @@
 .video-section {
 	background-color: #E1D8C7;
 
-	background-image: url(../Snippets/custom-background.liquid);
+    background-image: url('custom-background');
 	background-repeat: no-repeat;
 }
 
