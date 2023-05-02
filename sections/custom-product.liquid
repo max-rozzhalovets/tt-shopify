@@ -8,7 +8,7 @@
         <div class="swiper-wrapper">
           {% for image in product.images %}
             <div class="swiper-slide">
-              {% render image %}
+              <img src="{{image}}" alt="{{product.title}}">
             </div>
           {% endfor %}
         </div>
@@ -72,12 +72,21 @@
           </button>
         </div>
         <ul class="payment">
-          {% assign payments = 'custom-mono,custom-paypal,custom-visa,custom-mastercard,custom-amex' | split: ',' %}
-          {% for payment in payments %}
-            <li class="payment__option">
-              {% render payment %}
-            </li>
-          {% endfor %}
+          <li class="payment__option">
+            {% render 'custom-mono' %}
+          </li>
+          <li class="payment__option">
+            {% render 'custom-paypal' %}
+          </li>
+          <li class="payment__option">
+            {% render 'custom-visa' %}
+          </li>
+          <li class="payment__option">
+            {% render 'custom-mastercard' %}
+          </li>
+          <li class="payment__option">
+            {% render 'custom-amex' %}
+          </li>
         </ul>
         <ul class="product__assets">
           <li class="product__asset">
