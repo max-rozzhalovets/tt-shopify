@@ -24,8 +24,12 @@
             {% endfor %}
 					</div>
 					</div>
-					<div class="swiper-button-next swiper-button"></div>
-					<div class="swiper-button-prev swiper-button"></div>
+					<div class="swiper-button-next swiper-button">
+            {% render 'custom-swiper-left' %}
+          </div>
+					<div class="swiper-button-prev swiper-button">
+            {% render 'custom-swiper-right' %}
+          </div>
 				</div>
 				<div thumbsSlider="" class="swiper mySwiper">
 					<div class="swiper-wrapper">
