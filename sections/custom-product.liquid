@@ -5,8 +5,6 @@
   {{ 'swiper.css' | asset_url | stylesheet_tag }}
   {{ 'custom-page.css' | asset_url | stylesheet_tag }}
 
-  {{ 'swiper.js' | asset_url | script_tag }}
-
   <style>
     .video-section {
       background-image: url({{'custom-background' | asset_url}});
@@ -207,6 +205,8 @@
   </section>
 
   <script>
+    {{ 'swiper.js' | asset_url | script_tag }}
+    
     const description = document.querySelector(".description__options")
     console.dir(description)
     const showMoreButton = document.querySelector(".show-more-button")
