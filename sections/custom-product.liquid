@@ -1,20 +1,34 @@
 <section>
   {{ 'custom-reset.css' | asset_url | stylesheet_tag }}
   {{ 'custom-page.css' | asset_url | stylesheet_tag }}
+  {{ 'swiper.css' | asset_url | stylesheet_tag }}
+  {{ 'swiper.js' | asset_url | script_tag }}
 
   <section class="product-section">
     <div class="hero-container">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          {% for image in product.images %}
-            <div class="swiper-slide">
-              <img src="{{image | image_url}}" alt="{{product.title}}">
-            </div>
-          {% endfor %}
-        </div>
-        <div class="swiper-button swiper-button-prev"></div>
-        <div class="swiper-button swiper-button-next"></div>
-      </div>
+      <div class="swiper-container">
+				<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+          <div class="swiper-wrapper">
+						{% for image in product.images %}
+              <div class="swiper-slide">
+                <img src="{{image | image_url}}" alt="{{product.title}}">
+              </div>
+            {% endfor %}
+					</div>
+					</div>
+					<div class="swiper-button-next swiper-button"></div>
+					<div class="swiper-button-prev swiper-button"></div>
+				</div>
+				<div thumbsSlider="" class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						{% for image in product.images %}
+              <div class="swiper-slide">
+                <img src="{{image | image_url}}" alt="{{product.title}}">
+              </div>
+            {% endfor %}
+					</div>
+				</div>
+			</div>
       <div class="product__info">
         <div class="quote">
           <p class="quote__text">“Heerlijke zaadjes voor in de havermout of over een smoothie.”</p>
@@ -184,26 +198,26 @@
     </div>
   </section>
 
-  <script type="module">
-    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
-
-    const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-  })
-  </script>
+	<script type="module">
+		let swiper = new Swiper(".mySwiper", {
+      loop: true,
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+		});
+		let swiper2 = new Swiper(".mySwiper2", {
+      loop: true,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+		},
+		});
+  	</script>
 
   <script>
     const description = document.querySelector(".description__options")
