@@ -32,16 +32,25 @@
 }
 
 .swiper {
-	height: 100%;
+	max-width: 365px;
+	height: 83px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .swiper-slide {
 	text-align: center;
 	font-size: 18px;
 	background: #fff;
+	overflow: hidden;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.swiper-slide-active {
+	background: #E1D8C7;
 }
 
 .swiper-slide img {
@@ -466,6 +475,25 @@
 	background-image: url(./images/mark.svg);
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+@media (max-width: 1500px) {
+	.hero-container {
+		flex-direction: column;
+	}
+
+	.swiper {
+		width: 100%;
+	}
+
+	.swiper-container {
+		margin-top: 50px;
+		background-color: #FBF0DF;
+	}
+
+	.swiper-slide-active {
+		background: #FBF0DF;
+	}
 }
 
 @media (max-width: 1024px) {
