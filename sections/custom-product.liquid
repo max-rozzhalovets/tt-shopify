@@ -1,8 +1,16 @@
-<section>
+<section
+  id="MainProduct-{{ section.id }}"  
+>
   {{ 'custom-reset.css' | asset_url | stylesheet_tag }}
   {{ 'custom-page.css' | asset_url | stylesheet_tag }}
   {{ 'swiper.css' | asset_url | stylesheet_tag }}
   {{ 'swiper.js' | asset_url | script_tag }}
+
+  <style>
+    .video-section {
+      background-image: url({{'custom-background' | asset_url}});
+    }
+  </style>
 
   <section class="product-section">
     <div class="hero-container">
@@ -84,7 +92,7 @@
             <option value="2">2</option>
             <option value="3">3</option>
           </select>
-          <button type="button" class="order__button">Voeg toe aan winkelwagen</button>
+          {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
           <button type="button" class="favourites-button">
             {% render 'custom-heart' %}
           </button>
